@@ -1,0 +1,11 @@
+
+services:
+  - type: web
+    name: TruyenChuTT
+    env: java
+    buildCommand: "./gradlew build"     # hoặc mvn clean install nếu dùng Maven
+    startCommand: "java -jar build/libs/*.jar"  # Hoặc tùy theo cách bạn build
+    envVars:
+      - key: JAVA_VERSION
+        value: 17
+    plan: free
