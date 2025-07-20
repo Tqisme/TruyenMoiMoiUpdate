@@ -1,13 +1,10 @@
-# Sử dụng image chính xác Tomcat 11 + JDK 24
-FROM tomcat:11.0.0-jdk-21-temurin
+FROM tomcat:11.0.9-jre21-temurin-noble
 
-# Xóa các webapps mặc định
+# Xóa ứng dụng mặc định
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy WAR file vào Tomcat, đặt tên là ROOT.war để truy cập tại /
+# Copy file WAR của bạn vào làm ROOT
 COPY TruyenMoiMoi.war /usr/local/tomcat/webapps/ROOT.war
 
-# Mở port 8080
+# Mở cổng
 EXPOSE 8080
-
-CMD ["catalina.sh", "run"]
